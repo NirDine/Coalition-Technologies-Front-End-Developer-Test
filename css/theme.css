@@ -1,0 +1,97 @@
+/* ---------------------- COLOR VARIABLES ---------------------- */
+
+:root {
+    --color-bg:  #F6F7F8;
+    --color-card: #FFFFFF;
+    --color-text: #072635;
+    --color-accent: #01F0D0;
+}
+
+/* ---------------------- FONT VARIABLES ---------------------- */
+
+@font-face {
+  font-family: Manrope;
+  src: url("css/fonts/Manrope-VariableFont_wght") format ("ttf");
+}
+
+:root {
+  --main-font: Manrope, sans-serif;
+  --title-font: Manrope, sans-serif;
+}
+
+
+
+/* ---------------------- FONTS ---------------------- */
+
+
+body{
+    
+    font-family: var(--main-font);
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    
+    font-family: var(--title-font);
+    
+}
+
+
+/* ---------------------- COLORS ---------------------- */
+
+
+body {
+
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+a {
+     color: var(--color-text);
+}
+
+.card {
+    background-color: var(--color-card);
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(200,204,212,0.14);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(200,204,212,0.14);
+    box-shadow: 0px 0px 2px 0px rgba(200,204,212,0.14);
+
+}
+
+nav {
+    
+    & li.active {
+        background-color: var(--color-accent)
+    }
+    
+    & a:not(:has(li.active)):focus-within, a:not(:has(li.active)):hover {
+        color: var(--color-accent);
+    }
+}
+
+.diagnosisHistory {
+    
+    & .bloodPressure {
+        background-color: #F4F0FE;
+    }
+    
+    & .respiratoryRate {
+        background-color: #E0F3FA;
+    }
+    
+    & .temperature {
+        background-color: #FFE6E9;
+    }
+    
+    & .heartRate {
+        background-color: #FFE6F1;
+    }
+    
+}
+
+
+

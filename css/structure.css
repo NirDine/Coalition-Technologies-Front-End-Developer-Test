@@ -1,0 +1,226 @@
+:root {
+    
+}
+
+body {
+    
+}
+
+.card {
+    --b-radius: 16px;
+    border-radius: var(--b-radius);
+    
+    & h2 {
+        margin-bottom: 40px;
+    }
+}
+
+.title {
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+.wrapper {
+
+    
+    max-width: 1564px;
+    margin: 18px auto;
+    
+
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 32px 32px;
+  grid-auto-flow: row;
+  margin-block: 32px;
+}
+
+
+/* ---------------------- NAVIGATION  ---------------------- */
+
+
+nav {
+    --b-radius: 70px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 32px;
+    font-size: 14px;
+    font-weight: bold;
+
+    & .logo {
+        margin: auto 0;
+    }
+    & .navigation {
+        display: flex;
+        justify-content: center;
+    }
+        & ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            list-style: none;
+        
+            & li {
+                display: flex;
+                align-items: center;
+                padding: 12px 16px;
+                margin-inline: 4px;
+                border-radius: 41px;
+                cursor: pointer;
+                & img {
+                    height: 17px;
+                    margin-right: 8px;
+                }
+            }
+        }
+    & .userInfoHolder {
+        display: flex;
+        justify-content: center;
+        
+        & .userAvatar {
+            margin: auto 0;
+            & img {
+            height: 44px;
+            width: 44px;
+            }
+        }
+        
+        & .userInfo {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0px 12px 0px 8px ;
+        
+            & .userTitle {
+                font-weight: normal;
+            }
+        }
+        & .userConfig {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-left: 1px solid #EDEDED;
+
+            
+            & a {
+                cursor: pointer;
+                padding: 12px;
+            }
+        }
+    }
+    
+
+}
+
+
+
+
+/* ---------------------- PATIENTS LIST ---------------------- */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    
+    & .card {
+            padding: 20px;
+    }
+}
+
+.patientsList {
+    display: flex;
+    flex-direction: column;
+    height: 1054px;
+
+    
+    & .patientsListHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        & h2 {
+            
+        }
+        
+        & img {
+           
+            /* 
+           
+            This item is being displaced by the margin-bottom from the title.
+            
+            Normally, I'd use another method to add the gap between the title and content, but seeing as this is the only icon next to a title, having it be an exception feels adequate. 
+            
+            */
+            
+            margin-top: -40px;
+        }
+    }
+}
+
+
+/* ---------------------- DIAGNOSIS HISTORY ---------------------- */
+
+
+.diagnosisHistory  { 
+    
+    padding:20px;
+    
+    & .card {
+        padding: 16px;
+    }
+    
+    & .diagnosisHistoryWrapper { 
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "bloodPressure bloodPressure bloodPressure"
+        "respiratoryRate temperature heartRate";
+    }
+
+    & .bloodPressure { grid-area: bloodPressure; }
+
+    & .respiratoryRate { grid-area: respiratoryRate; }
+
+    & .temperature { grid-area: temperature; }
+
+    & .heartRate { grid-area: heartRate; }
+}
+
+
+
+
+
+
+/* ---------------------- X ---------------------- */
+
+
+
+/* ---------------------- ACTIVE PATIENT ---------------------- */
+
+.activePatient {
+    
+    & .activePatientHeader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        & .activePatientAvatar {
+            margin-top: 12px;
+        }
+        & .title {
+            margin-block: 24px 32px; 
+        }
+    }
+}
+
+
+
+/* ---------------------- X ---------------------- */
