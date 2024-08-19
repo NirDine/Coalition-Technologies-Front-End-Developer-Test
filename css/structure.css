@@ -166,9 +166,7 @@ nav {
     }
 
     & .allPatients {
-        
-        overflow-x: auto;
-        margin-right: 4px;
+    
         max-height: 90%;
 
  
@@ -195,8 +193,8 @@ nav {
             
 
                     & .patientGender::after {
-                        content: ",";
-                        
+                        content: ", ";
+
                     }
                 }
 
@@ -244,6 +242,7 @@ nav {
     & .temperature { grid-area: temperature; }
 
     & .heartRate { grid-area: heartRate; }
+    
 }
 
 
@@ -251,7 +250,78 @@ nav {
 
 
 
-/* ---------------------- X ---------------------- */
+/* ---------------------- DIAGNOSTIC LIST ---------------------- */
+
+
+.diagnosticList {
+    
+
+    & .container {
+     max-height: 160px;
+
+     
+    }
+
+    & table {
+        text-align: left;
+        width: 100%;
+        font-size: 14px;
+        
+        
+        & thead, tr, tfoot {
+            /* Padding can't be applied to display table-row elemenets */
+
+        }
+        
+        & th, td {
+            padding: 16px;
+            vertical-align: middle;
+        }
+           
+        .leftColumn {
+            width: 30%;
+        }
+        .centerColumn {
+            width: 50%;
+        }
+        
+        & caption {
+            text-align: left;
+            padding-bottom: 40px;
+            
+        }
+        
+        
+        & tbody {
+
+        }
+    }
+    
+    .header {
+        border-right: 12px solid transparent;
+   
+        thead {
+                background: #F6F7F8;
+                font-weight: 700;
+
+
+                & th:first-child {
+                    border-radius: 24px 0px  0px 24px;
+                }
+
+                & th:last-child {
+                    border-radius:  0px 24px 24px 0px;
+                }
+            }
+    }
+    table:not(.header) {
+        
+        & tr {
+            border-bottom: 1px solid #F6F7F8;
+        }
+
+    }
+}
 
 
 
