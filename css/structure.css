@@ -6,6 +6,18 @@ body {
     
 }
 
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    
+    & .card {
+            padding: 20px;
+    }
+}
+
+
 .card {
     --b-radius: 16px;
     border-radius: var(--b-radius);
@@ -24,7 +36,6 @@ body {
 
 .wrapper {
 
-    
     max-width: 1564px;
     margin: 18px auto;
     
@@ -122,26 +133,19 @@ nav {
 
 /* ---------------------- PATIENTS LIST ---------------------- */
 
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    
-    & .card {
-            padding: 20px;
-    }
-}
 
 .patientsList {
     display: flex;
     flex-direction: column;
     height: 1054px;
-
+    padding: 0px !important;
     
     & .patientsListHeader {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-inline: 20px;
+        padding-top: 20px;
         
         & h2 {
             
@@ -160,6 +164,56 @@ nav {
             margin-top: -40px;
         }
     }
+
+    & .allPatients {
+        
+        overflow-x: auto;
+        margin-right: 4px;
+        max-height: 90%;
+
+ 
+        & .patient:first-child {
+            top: -16px;
+        }
+        & .patient {
+             display: flex;
+            align-items: center;
+            padding: 16px 16px 16px 20px;
+            margin-right: 4px;
+            cursor: pointer;
+
+            & .patientAvatar {
+                margin-right: 12px;
+            } 
+            & .patientInfo {
+
+                & .patientName {
+                    margin-bottom: 4px;
+                } 
+
+                & .patientInfo {
+            
+
+                    & .patientGender::after {
+                        content: ",";
+                        
+                    }
+                }
+
+            }
+
+            & .patientMenu {
+                background: url(/img/more_horiz_FILL0_wght300_GRAD0_opsz24.svg)  no-repeat center center;
+                width: 18px;
+                height: 48px;
+                cursor: pointer;
+
+                margin-left: auto;
+            }
+
+
+        }
+    }
 }
 
 
@@ -167,9 +221,7 @@ nav {
 
 
 .diagnosisHistory  { 
-    
-    padding:20px;
-    
+
     & .card {
         padding: 16px;
     }

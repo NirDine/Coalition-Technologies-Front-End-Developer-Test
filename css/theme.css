@@ -4,6 +4,7 @@
     --color-bg:  #F6F7F8;
     --color-card: #FFFFFF;
     --color-text: #072635;
+    --color-gray-text: #707070;
     --color-accent: #01F0D0;
 }
 
@@ -71,6 +72,10 @@ nav {
     & a:not(:has(li.active)):focus-within, a:not(:has(li.active)):hover {
         color: var(--color-accent);
     }
+    
+    & .userTitle {
+        color: var(--color-gray-text);
+    }
 }
 
 .diagnosisHistory {
@@ -91,6 +96,61 @@ nav {
         background-color: #FFE6F1;
     }
     
+}
+
+.patientsList {
+        
+    & .allPatients::-webkit-scrollbar  {
+         width: var(--sb-size);
+        
+    }
+    
+    & .allPatients::-webkit-scrollbar-track  {
+          background: var(--sb-track-color);
+          border-radius: 3px;
+        
+    }
+    & .allPatients::-webkit-scrollbar-thumb  {
+          background: var(--sb-thumb-color);
+          border-radius: 3px;
+        
+    }
+    
+
+    & .allPatients {
+        
+        overflow-x: auto;
+        --sb-track-color: #e3e4e6;
+        --sb-thumb-color: #072635;
+        --sb-size: 6px;
+        
+    
+        
+        & .patient {
+            
+            & .patientInfo {
+
+                & .patientInfo {
+                    color: var(--color-gray-text);
+
+                }
+
+            }
+        }
+    
+        & .patient.active, .patient:hover {
+
+            background:#D8FCF7;
+        }
+
+}
+    
+    
+@supports not selector(::-webkit-scrollbar) {
+  .allPatients {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
 }
 
 
