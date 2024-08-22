@@ -3,18 +3,21 @@
 }
 
 body {
-    
+       margin-inline: 18px; 
 }
 
 
 .container {
     display: flex;
     flex-direction: column;
+
     gap: 32px;
     
-    & .card {
+    .card {
             padding: 20px;
     }
+    
+    max-height:    1054px;
 }
 
 
@@ -22,7 +25,7 @@ body {
     --b-radius: 16px;
     border-radius: var(--b-radius);
     
-    & h2 {
+    h2 {
         margin-bottom: 40px;
     }
 }
@@ -63,62 +66,62 @@ nav {
     font-size: 14px;
     font-weight: bold;
 
-    & .logo {
+    .logo {
         margin: auto 0;
     }
-    & .navigation {
+    .navigation {
         display: flex;
         justify-content: center;
     }
-        & ul {
+        ul {
             display: flex;
             flex-direction: row;
             align-items: center;
             list-style: none;
         
-            & li {
+            li {
                 display: flex;
                 align-items: center;
                 padding: 12px 16px;
                 margin-inline: 4px;
                 border-radius: 41px;
                 cursor: pointer;
-                & img {
+                img {
                     height: 17px;
                     margin-right: 8px;
                 }
             }
         }
-    & .userInfoHolder {
+    .userInfoHolder {
         display: flex;
         justify-content: center;
         
-        & .userAvatar {
+        .userAvatar {
             margin: auto 0;
-            & img {
+            img {
             height: 44px;
             width: 44px;
             }
         }
         
-        & .userInfo {
+        .userInfo {
             display: flex;
             justify-content: center;
             flex-direction: column;
             margin: 0px 12px 0px 8px ;
         
-            & .userTitle {
+            .userTitle {
                 font-weight: normal;
             }
         }
-        & .userConfig {
+        .userConfig {
             display: flex;
             flex-direction: row;
             align-items: center;
             border-left: 1px solid #EDEDED;
 
             
-            & a {
+            a {
                 cursor: pointer;
                 padding: 12px;
             }
@@ -137,21 +140,20 @@ nav {
 .patientsList {
     display: flex;
     flex-direction: column;
-    height: 1054px;
     padding: 0px !important;
     
-    & .patientsListHeader {
+    .patientsListHeader {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-inline: 20px;
         padding-top: 20px;
         
-        & h2 {
+        h2 {
             
         }
         
-        & img {
+        img {
            
             /* 
            
@@ -165,34 +167,34 @@ nav {
         }
     }
 
-    & .allPatients {
+    .allPatients {
     
         max-height: 90%;
 
  
-        & .patient:first-child {
+        .patient:first-child {
             top: -16px;
         }
-        & .patient {
+        .patient {
              display: flex;
             align-items: center;
             padding: 16px 16px 16px 20px;
             margin-right: 4px;
             cursor: pointer;
 
-            & .patientAvatar {
+            .patientAvatar {
                 margin-right: 12px;
             } 
-            & .patientInfo {
+            .patientInfo {
 
-                & .patientName {
+                .patientName {
                     margin-bottom: 4px;
                 } 
 
-                & .patientInfo {
+                .patientInfo {
             
 
-                    & .patientGender::after {
+                    .patientGender::after {
                         content: ", ";
 
                     }
@@ -200,7 +202,7 @@ nav {
 
             }
 
-            & .patientMenu {
+            .patientMenu {
                 background: url(/img/more_horiz_FILL0_wght300_GRAD0_opsz24.svg)  no-repeat center center;
                 width: 18px;
                 height: 48px;
@@ -219,12 +221,14 @@ nav {
 
 
 .diagnosisHistory  { 
+    
+    height: 657px;
 
-    & .card {
+    .card {
         padding: 16px;
     }
     
-    & .diagnosisHistoryWrapper { 
+    .diagnosisHistoryWrapper { 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
@@ -235,13 +239,141 @@ nav {
         "respiratoryRate temperature heartRate";
     }
 
-    & .bloodPressure { grid-area: bloodPressure; }
+    .normal .visualizer {
+        display: none;
+    }
+    
+    .lower .visualizer {
+        transform: rotate(180deg) translateY(50%)
+    }
+    
+    .diagnosis {
+        height: fit-content;
+        
+        .categoryIcon {
+            width: 96px;
+            height: 96px;
+            margin-bottom: 16px;
+        }
+        
+        .diagnosisInfoHolder {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+            
+            .diagnosisCategory {
+                font-size: 16px;
+                
+            }
+            .diagnosisData {
+                font-size: 30px;
+                font-weight: 700;
+            }
 
-    & .respiratoryRate { grid-area: respiratoryRate; }
+            .diagnosisState {
 
-    & .temperature { grid-area: temperature; }
+            }
+        }
+    }
 
-    & .heartRate { grid-area: heartRate; }
+    .diagnosis:not(.temperature) .diagnosisData::after {
+        content: ' bpm'
+    }
+    
+    .diagnosis.temperature .diagnosisData::after {
+        content: '°F'
+    }
+    
+    .bloodPressure { 
+        grid-area: bloodPressure;
+        display: flex;
+        justify-content: space-between;
+        
+        .bloodPressureChartHolder {
+            
+
+            
+            .bloodPressureChartHeader {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                
+                
+                .bloodPressureChartTitle {
+                    font-weight: 700;
+                    font-size: 18px;
+
+                }
+                
+                .monthLimiter  {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    margin-right: 11px;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+        .bloodPressureData {
+
+            
+            .chartContextInfo {
+                
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 208px;
+                
+                .chartContextTitle {
+                    display: flex;
+                    gap: 4px;
+                    font-weight: 700;
+                }
+                
+                .chartContextTitle::before {
+                    display: block;
+                    content: '';
+                    width: 14px !important;
+                    height: 14px !important;
+                    border-radius: 100%;
+                }
+                
+                .chartContextData {
+                    font-size: 22px;
+                    font-weight: 700;
+                }
+                
+            }
+            .chartContextInfo.systolic {
+                border-bottom: 1px solid #CBC8D4;
+                padding-bottom: 16px;
+                
+                 .chartContextTitle::before {
+                  
+                }
+                
+            }
+            
+            
+            .chartContextInfo.diastolic {
+                padding-top: 16px;
+                
+                 .chartContextTitle::before {
+                  
+                }
+
+            }
+            
+        }
+    }
+
+    .respiratoryRate { grid-area: respiratoryRate; }
+
+    .temperature { grid-area: temperature; }
+
+    .heartRate { grid-area: heartRate; }
     
 }
 
@@ -256,24 +388,23 @@ nav {
 .diagnosticList {
     
 
-    & .container {
-     max-height: 160px;
-
+    .container {
+        height: 229px;
      
     }
 
-    & table {
+    table {
         text-align: left;
         width: 100%;
         font-size: 14px;
         
         
-        & thead, tr, tfoot {
+        thead, tr, tfoot {
             /* Padding can't be applied to display table-row elemenets */
 
         }
         
-        & th, td {
+        th, td {
             padding: 16px;
             vertical-align: middle;
         }
@@ -285,14 +416,14 @@ nav {
             width: 50%;
         }
         
-        & caption {
+        caption {
             text-align: left;
             padding-bottom: 40px;
             
         }
         
         
-        & tbody {
+        tbody {
 
         }
     }
@@ -305,18 +436,18 @@ nav {
                 font-weight: 700;
 
 
-                & th:first-child {
+                th:first-child {
                     border-radius: 24px 0px  0px 24px;
                 }
 
-                & th:last-child {
+                th:last-child {
                     border-radius:  0px 24px 24px 0px;
                 }
             }
     }
     table:not(.header) {
         
-        & tr {
+        tr {
             border-bottom: 1px solid #F6F7F8;
         }
 
@@ -329,20 +460,88 @@ nav {
 
 .activePatient {
     
-    & .activePatientHeader {
+    .activePatientHeader {
         display: flex;
         flex-direction: column;
         align-items: center;
         
-        & .activePatientAvatar {
+        .activePatientAvatar {
             margin-top: 12px;
         }
-        & .title {
+        .title {
             margin-block: 24px 32px; 
+        }
+    }
+    
+    .activatePatientData {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        
+        .infoContainer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            
+            .info {
+                
+                display: flex;
+                flex-direction: column;
+                
+                .data {
+                    margin-top: 4px;
+                    font-weight: 700;
+
+                }
+            }
+        }
+    }
+    
+    .buttonHolder {
+        
+        margin-top: 40px; 
+        margin-bottom: 12px;
+        text-align: center;
+        
+        .moreInfo {
+            padding: 11px 40px;
+            font-family: Manrope, sans-serif;
+            font-weight: 700;
+            border-radius: 41px;
+            border: none;
+            background: var(--color-accent);
+ 
         }
     }
 }
 
 
 
-/* ---------------------- X ---------------------- */
+/* ---------------------- LAB RESULTS ---------------------- */
+
+.labResults {
+    min-height: 306px;
+    
+    .labResultsContainer {
+        display: flex;
+        flex-direction: column;
+        max-height: 202px;
+
+        
+        .result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            cursor: pointer;
+            margin-right: 4px;
+
+        }
+        
+        .result.selected, .result:hover, .result:focus-within {
+            background: #F6F7F8;
+        }
+    }
+}

@@ -6,6 +6,8 @@
     --color-text: #072635;
     --color-gray-text: #707070;
     --color-accent: #01F0D0;
+    --color-systolic: #E66FD2;
+    --color-diastolic: #8C6FE6;
 }
 
 /* ---------------------- FONT VARIABLES ---------------------- */
@@ -28,6 +30,7 @@
 body{
     
     font-family: var(--main-font);
+    font-size: 14px;
     
 }
 
@@ -65,34 +68,57 @@ a {
 
 nav {
     
-    & li.active {
+    li.active {
         background-color: var(--color-accent)
     }
     
-    & a:not(:has(li.active)):focus-within, a:not(:has(li.active)):hover {
+    a:not(:has(li.active)):focus-within, a:not(:has(li.active)):hover {
         color: var(--color-accent);
     }
     
-    & .userTitle {
+    .userTitle {
         color: var(--color-gray-text);
     }
 }
 
 .diagnosisHistory {
     
-    & .bloodPressure {
+    .bloodPressure {
         background-color: #F4F0FE;
+
+        
+        .monthLimiter span {
+            
+            color: var(----color-text);
+        }
+        
+        .chartContextInfo.systolic {
+
+             .chartContextTitle::before {
+                 background: var(--color-systolic);
+            }
+
+        }
+                
+        .chartContextInfo.diastolic {
+
+             .chartContextTitle::before {
+                    background: var(--color-diastolic);
+            }
+
+        }
+            
     }
     
-    & .respiratoryRate {
+    .respiratoryRate {
         background-color: #E0F3FA;
     }
     
-    & .temperature {
+    .temperature {
         background-color: #FFE6E9;
     }
     
-    & .heartRate {
+    .heartRate {
         background-color: #FFE6F1;
     }
     
@@ -101,11 +127,11 @@ nav {
 .patientsList {        
     
         
-        & .patient {
+        .patient {
             
-            & .patientInfo {
+            .patientInfo {
 
-                & .patientInfo {
+                .patientInfo {
                     color: var(--color-gray-text);
 
                 }
@@ -113,7 +139,7 @@ nav {
             }
         }
     
-        & .patient.active, .patient:hover {
+        .patient.active, .patient:hover {
 
             background:#D8FCF7;
         }
@@ -127,22 +153,22 @@ nav {
         
     }
     
-    & .scroll::-webkit-scrollbar-track  {
+    .scroll::-webkit-scrollbar-track  {
           background: var(--sb-track-color);
           border-radius: 3px;
         
     }
-    & .scroll::-webkit-scrollbar-thumb  {
+    .scroll::-webkit-scrollbar-thumb  {
           background: var(--sb-thumb-color);
           border-radius: 3px;
         
     }
     
 
-    & .scroll {
+    .scroll {
 
         --sb-track-color: #e3e4e6;
-        --sb-thumb-color: #072635;
+        --sb-thumb-color: var(----color-text);
         --sb-size: 6px;
         margin-right: 4px;
         overflow-y: auto;
